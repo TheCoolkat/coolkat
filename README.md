@@ -1,2 +1,2 @@
-# coolkat.github.io
-a website about meeee :3
+# i made a website
+go check it out
