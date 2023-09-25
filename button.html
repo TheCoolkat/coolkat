@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button</title>
+    <link rel="stylesheet" href="stuff.css">
+    <style>
+        #number {
+            font-size: 40px;
+            font-family: "Dogica Pixel";
+        }
+    </style>
+</head>
+<body>
+    <img onclick="Click()" src="./images/buttons/butto n.png" alt="butto n" width="200" height="75">
+    <p id="number">0</p>
+
+    <script>
+        var x = 0;
+        function Click() {
+            x += 1;
+            document.getElementById("number").innerHTML = x;
+        }
+    </script>
+</body>
+</html>
