@@ -1,8 +1,16 @@
-.center{
-    text-align: center;
+@font-face{
+    font-family: DogicaB;
+    src: url("./fonts/dogicapixel.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
+
 body {
     background-color: black;
     color: white;
-    font-family: "Dogica Pixel";
+    font-family: DogicaB;
+}
+
+.center{
+    text-align: center;
 }
