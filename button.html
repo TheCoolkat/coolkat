@@ -7,19 +7,151 @@
     <style>
         #number {
             font-size: 40px;
-            font-family: "Dogica Pixel";
+            font-family: DogicaB;
+        }
+        .button {
+            display: inline-block;
+        }
+        #wasitworthit {
+            font-size: 25px;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <img onclick="Click()" src="./images/buttons/butto n.png" alt="butto n" width="200" height="75">
+    <img onclick="Click()" class="button" src="./images/buttons/butto n.png" alt="butto n" width="267" height="100">
+    <img onclick="ClickPlus()" id="plus" class="button" src="./images/buttons/button/plus1.png" alt="plus butto n" width="0" height="100">
+    <img onclick="ClickMult()" id="mult" class="button" src="./images/buttons/button/mult0-01.png" alt="mult butto n" width="0" height="100">
     <p id="number">0</p>
+    <p id="perclickdisp">Per Click: 1</p>
+    <p id="wasitworthit"></p>
+    <a href="./yayudidit.html"><img id="yea" src="./images/buttons/button/yea.png" alt="yea lol" width="0" height="75"></a>
 
     <script>
-        var x = 0;
+        // To anyone seeing this:
+        // Yes i know my code is extremely unorganized and bad. What are you going to do about it?
+        // Maybe i will fix it later
+        // (im not going to fix it later)
+
+        let x = 0;
+        let xinc = 1;
+        let xincmult = 1.0;
+
+        let clickplusnum = 1;
+        let clickpluscost = 25;
+        let clickmultnum = 0.01;
+        let clickmultcost = 50000;
+
+        function checkForUnlock() {
+            if (x >= 25) {
+                document.getElementById("plus").width = "267";
+            }
+            if (x >= 500 && clickplusnum < 5) {
+                document.getElementById("plus").src = "./images/buttons/button/plus5.png";
+                clickplusnum = 5;
+                clickpluscost = 125;
+            }
+            if (x >= 2500 && clickplusnum < 100) {
+                document.getElementById("plus").src = "./images/buttons/button/plus100.png";
+                clickplusnum = 100;
+                clickpluscost = 2500;
+            }
+            if (x >= 250000 && clickplusnum < 10000) {
+                document.getElementById("plus").src = "./images/buttons/button/plus10000.png";
+                clickplusnum = 10000;
+                clickpluscost = 250000;
+            }
+            if (x >= 250000000 && clickplusnum < 10000000) {
+                document.getElementById("plus").src = "./images/buttons/button/plus10000000.png";
+                clickplusnum = 10000000;
+                clickpluscost = 250000000;
+            }
+            if (x >= 25000000000000 && clickplusnum < 1000000000000) {
+                document.getElementById("plus").src = "./images/buttons/button/plus1000000000000.png";
+                clickplusnum = 1000000000000;
+                clickpluscost = 25000000000000;
+            }
+
+
+            if (x >= 50000) {
+                document.getElementById("mult").width = "267";
+            }
+            if (x >= 1000000 && clickmultnum < 0.1) {
+                document.getElementById("mult").src = "./images/buttons/button/mult0-1.png";
+                clickmultnum = 0.1;
+                clickmultcost = 500000;
+            }
+            if (x >= 5000000 && clickmultnum < 1) {
+                document.getElementById("mult").src = "./images/buttons/button/mult1.png";
+                clickmultnum = 1;
+                clickmultcost = 5000000;
+            }
+            if (x >= 1000000000 && clickmultnum < 100) {
+                document.getElementById("mult").src = "./images/buttons/button/mult100.png";
+                clickmultnum = 100;
+                clickmultcost = 500000000;
+            }
+            if (x >= 10000000000000 && clickmultnum < 1000000) {
+                document.getElementById("mult").src = "./images/buttons/button/mult1000000.png";
+                clickmultnum = 1000000;
+                clickmultcost = 5000000000000;
+            }
+            if (x >= 10000000000000000000 && clickmultnum < 1000000000000) {
+                document.getElementById("mult").src = "./images/buttons/button/mult1000000000000.png";
+                clickmultnum = 1000000000000;
+                clickmultcost = 5000000000000000000;
+            }
+
+            if (x >= 1000000000000000000000000000000 && clickplusnum < 10000000000000) {
+                document.getElementById("plus").src = "./images/buttons/button/plusinf.png";
+                clickplusnum = 420;
+                clickpluscost = 420;
+            }
+        }
+
+        function Update() {
+            document.getElementById("number").innerHTML = Math.round(x);
+
+            if (xincmult <= 1) {
+                document.getElementById("perclickdisp").innerHTML = "Per Click: " + xinc;
+            } else {
+                document.getElementById("perclickdisp").innerHTML = "Per Click: (" + xinc + " x " + xincmult.toFixed(2) + ") = " + Math.round(xinc * xincmult);
+            }
+        }
+
         function Click() {
-            x += 1;
-            document.getElementById("number").innerHTML = x;
+            x += (xinc * xincmult);
+            Update();
+
+            if (clickpluscost != 420) {
+                checkForUnlock();
+            } else if (document.getElementById("plus").width == 0) {
+                document.getElementById("wasitworthit").innerHTML = "Well, you did it. <br> You got to infinity, the highest number that anyone could possibly reach. <br> Was it worth it? Spending 5, 15, maybe even 30 minutes reaching an arbitrary goal comprised of numbers so high they're incomprehensible to man? <br> You could've been doing work, creating something, or <i>at least</i> be playing a game that saves your data when you reload the page. <br> If there was no end, how long would you still be clicking? <br> 10 minutes? <br> 30 minutes? <br> An hour? <br> All the time you spent clicking couldn't go to waste, or else you would've just been wasting your time, right? <br> I say all of this to ask: <br> Was It Worth It?";
+                document.getElementById("yea").width = "100";
+            }
+        }
+
+        function ClickPlus() {
+            if (x >= clickpluscost) {
+                if (clickpluscost == 420) {
+                    x = 0;
+                    xinc = (9999999999 ** 99999999 ** 99999999 ** 99999999999);
+                    document.getElementById("plus").width = "0";
+                    document.getElementById("mult").width = "0";
+                } else {
+                    x -= clickpluscost;
+                    xinc += clickplusnum;
+                }
+                Update();
+            }
+        }
+
+        function ClickMult() {
+            if (x >= clickmultcost) {
+                x -= clickmultcost;
+                xincmult += clickmultnum;
+                Update();
+            }
         }
     </script>
 </body>
