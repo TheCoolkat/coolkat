@@ -3,10 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stuff.css">
+    <link rel="icon" type="image/x-icon" href="./images/misc/ickon.png">
     <title>About Meee :3</title>
+    <style>
+        p {
+            line-height: 1.5;
+        }
+
+        .box{
+            border: 20px groove white;
+            border-radius: 20px;
+            margin: 0px 100px 0px 100px;
+            padding: 0px 30px 0px 30px;
+            text-align: center;
+        }
+        .box2{
+            border: 20px inset white;
+            border-radius: 20px;
+            margin: 0px 100px 0px 100px;
+            padding: 0px 30px 0px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin: 15px;
+        }
+
+        h1.abt {
+            font-size: 80px;
+            text-align: center;
+            margin: 50px;
+        }
+        .brdimg { /* bordered image */
+            border: 10px double white;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        p.boxdiv{
+            margin: 100px;
+        }
+        a.gal{
+            color: white;
+            text-decoration: none;
+        }
+        a.gal:hover {
+            color: grey;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>:3</h1>
-    <h1>:3</h1>
+    <h1 class="abt">About</h1>
+    <div class="box">
+        <h1>General Info</h1>
+        <hr>
+        <img src="images/RealPhotosTakenByMeTheseAreOneHundredPercentRealAndNotJustDrawingsTheseAreRealPhotos/blehhh.jpg" class="brdimg" width="300" height="300">
+        <p>*this is a real photograph taken of me</p>
+        <br>
+        <br>
+        <br>
+        <h2>Name</h2>
+        <p>Coolkat</p>
+        <br>
+        <h2>Ok but whats your <i>actual</i> name?</h2>
+        <p>you got me... 😔 its Coolius C. Katter</p>
+        <br>
+        <h2>Birthday</h2>
+        <p>August 4th</p>
+        <br>
+        <h2>Is it your birthday today?</h2>
+        <p id="isBappy"></p>
+        <br>
+        <h2>Age</h2>
+        <p id="age">At least 2 i think i stopped counting after that</p>
+        <br>
+        <h2>idk what to put here</h2>
+        <p>:3</p>
+    </div>
+
+    <p class="boxdiv"></p>
+
+    <div class="box2">
+        <h1>Interests & Stuff</h1>
+        <hr>
+        <p>*if you mention anything in this section within a 2 meter radius of me, i <i>will</i> go on a 2 hour long rant explaining the topic in detail with a concerning amount of depth.</p>
+        <h2>Games</h2>
+        <p>- Splatoon</p>
+        <p>- Tetris</p>
+        <p>- <a href="./ihate52gal.html" class="gal">Splatoon</a></p>
+        <p>- YOMI Hustle</p>
+        <p>- Baba Is You</p>
+        <p>- Dicey Dungeons</p>
+        <p>- Patrick's Parabox</p>
+        <p>- 5d Chess With Multiverse Time Travel</p>
+        <p>- Yugioh, but im really bad at it</p>
+        <p>- Splatoon</p>
+        <br>
+        <h2>Subjects</h2>
+        <p>- Math</p>
+        <p>- Programming</p>
+        <p>- umm uhhh i think thats it</p>
+        <p>- Oh, and any of my OCs</p>
+    </div>
+
+    <script>
+        const d = new Date();
+        let monthday = d.getMonth().toString() + "-" + d.getDate().toString();
+        document.getElementById("isBappy").innerHTML = monthday;
+
+        if (monthday == "7-4") {
+            document.getElementById("isBappy").innerHTML = "Yes, now give me 2 million dollar";
+        } else {
+            document.getElementById("isBappy").innerHTML = "No";
+        }
+    </script>
 </body>
 </html>
