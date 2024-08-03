@@ -109,6 +109,9 @@
         <h2>Age</h2>
         <p id="age">At least 2 i think i stopped counting after that</p>
         <br>
+        <h2>What time is it for you?</h2>
+        <p id="time"></p>
+        <br>
         <h2>Gender</h2>
         <p>mail ✉️</p>
         <br>
@@ -161,15 +164,20 @@
     </div>
 
     <script>
-        const d = new Date();
-        let monthday = d.getMonth().toString() + "-" + d.getDate().toString();
-        document.getElementById("isBappy").innerHTML = monthday;
+        function Update(){
+            var d = new Date();
+            var monthday = d.getMonth().toString() + "-" + d.getDate().toString();
+            document.getElementById("time").innerHTML = "Its " + d.toLocaleTimeString() + " on " + d.toLocaleDateString() + " for me. My timezone is CST.";
 
-        if (monthday == "7-4") {
-            document.getElementById("isBappy").innerHTML = "Yes, now give me 2 million dollar";
-        } else {
-            document.getElementById("isBappy").innerHTML = "No";
+            if (monthday == "7-4") {
+                document.getElementById("isBappy").innerHTML = "Yes, now give me 2 million dollar";
+            } else {
+                document.getElementById("isBappy").innerHTML = "No";
+            }
         }
+
+        Update();
+        setInterval(Update, 1000);
     </script>
 </body>
 </html>
