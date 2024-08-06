@@ -164,10 +164,16 @@
     </div>
 
     <script>
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        function convertTZ(date, tzString) {
+            return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+        }
+
         function Update(){
-            var d = new Date();
-            var monthday = d.getMonth().toString() + "-" + d.getDate().toString();
-            document.getElementById("time").innerHTML = "Its " + d.toLocaleTimeString() + " on " + d.toLocaleDateString() + " for me. My timezone is CST.";
+            var d = new Date()
+            var myd = new Date(d.toLocaleString("en-US", { timeZone: "America/Chicago" }));
+            var monthday = myd.getMonth().toString() + "-" + myd.getDate().toString();
+            document.getElementById("time").innerHTML = "Its " + month[myd.getMonth()] + " " + myd.getDate() + ((myd.getDate() >= 11 || myd.getDate() <= 13) ? "th" : ["th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"][myd.getDate() % 10]) + " at " + myd.toLocaleTimeString() + " for me. My timezone is CST.";
 
             if (monthday == "7-4") {
                 document.getElementById("isBappy").innerHTML = "Yes, now give me 2 million dollar";
@@ -177,7 +183,7 @@
         }
 
         Update();
-        setInterval(Update, 1000);
+        setInterval(Update, 500);
     </script>
 </body>
 </html>
