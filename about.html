@@ -165,9 +165,6 @@
 
     <script>
         const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        function convertTZ(date, tzString) {
-            return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
-        }
 
         function Update(){
             var d = new Date()
