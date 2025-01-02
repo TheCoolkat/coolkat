@@ -170,7 +170,7 @@
             var d = new Date()
             var myd = new Date(d.toLocaleString("en-US", { timeZone: "America/Chicago" }));
             var monthday = myd.getMonth().toString() + "-" + myd.getDate().toString();
-            document.getElementById("time").innerHTML = "Its " + month[myd.getMonth()] + " " + myd.getDate() + ((myd.getDate() >= 11 || myd.getDate() <= 13) ? "th" : ["th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"][myd.getDate() % 10]) + " at " + myd.toLocaleTimeString() + " for me. My timezone is CST.";
+            document.getElementById("time").innerHTML = "Its " + month[myd.getMonth()] + " " + myd.getDate() + ((myd.getDate() >= 11 && myd.getDate() <= 13) ? "th" : ["th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"][myd.getDate() % 10]) + " at " + myd.toLocaleTimeString() + " for me. My timezone is CST.";
 
             if (monthday == "7-4") {
                 document.getElementById("isBappy").innerHTML = "Yes, now give me 2 million dollar";
